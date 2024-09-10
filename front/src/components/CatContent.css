@@ -1,0 +1,31 @@
+.cat-image {
+    width: 225px;
+    height: 225px;
+    transition: transform 0.3s;
+  }
+  
+  .cat-container {
+    position: relative;
+  }
+  
+  .cat-like {
+    position: absolute;
+    bottom: 0px;
+    left: 180px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .heart {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .cat-container:hover .cat-image {
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .cat-container:hover .cat-like {
+    opacity: 1;
+  }
