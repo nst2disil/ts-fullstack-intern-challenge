@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
-import { LikeModule } from './like/like.module';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(LikeModule);
+  const app = await NestFactory.create(AppModule);
   app.enableCors({
     origin: 'http://localhost:8080',
     methods: 'GET,POST,DELETE,OPTIONS',

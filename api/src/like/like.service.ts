@@ -28,6 +28,6 @@ export class LikeService {
   }
 
   async getAllLikes(): Promise<Like[]> {
-    return this.likeRepository.find();;
+    return this.likeRepository.find();
   }
 }

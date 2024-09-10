@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import CatContent from './components/CatContent';
 import Footer from './components/Footer';
-import { HOME_PAGE, FAVORITE_PAGE, FAV_CATS_URL } from './constants';
+import { HOME_PAGE, FAVORITE_PAGE, FAV_CATS_URL, ALL_CATS_URL } from './constants';
 
 interface Cat {
   id: string;
@@ -11,23 +11,17 @@ interface Cat {
 }
 
 function App() {
-  const apiKey = 'live_TqrTDljYJAWeNgRbMnTKO3dAySez7Iu9krWpgvhF4xlhYEXAjirmD5zrezhFjbRh';
   const [allCats, setAllCatImages] = useState<Cat[]>([]);
   const [favCats, setFavCatImages] = useState<Cat[]>([]);
   const [activePage, setActivePage] = useState<number>(HOME_PAGE);
 
   const fetchCatImages = async () => {
     try {
-      const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?limit=15`,
-        {
-          headers: { 'x-api-key': apiKey || '' },
-        }
-      );
+      const response = await fetch(ALL_CATS_URL);
       const data: Cat[] = await response.json();
       setAllCatImages(data);
     } catch (error) {
-      console.error('Error fetching all cats:', error);
+      console.error('Error fetching favorite cats:', error);
     }
   };
 
